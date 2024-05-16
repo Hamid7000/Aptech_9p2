@@ -1,0 +1,57 @@
+﻿@model List<product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/master.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Products List</h1>
+        <a asp-controller="pro" asp-action="add" class="btn btn-primary float-right">Add Product</a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.pro_id</td>
+                        <td>@item.pro_name</td>
+                        <td>@item.qty</td>
+                        <td>@item.price</td>
+                        <td><img src="~/images/@item.pro_image" width="60" height="60"></td>
+                        <td>@item.category.cat_name</td>
+                        <td>
+                            <a asp-controller="pro" asp-action="edit" asp-route-id="@item.pro_id"><i class="fa-solid fa-pencil mr-5" style="color:darkgreen"></i></a>
+                            <a asp-controller="pro" asp-action="delete" asp-route-id="@item.pro_id"><i class="fa-solid fa-trash-can" style="color:red"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+          @*   <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot> *@
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

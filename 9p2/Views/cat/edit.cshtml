@@ -1,0 +1,29 @@
+﻿@model category
+@{
+    ViewData["Title"] = "edit";
+    Layout = "~/Views/Shared/master.cshtml";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Edit Category</h3>
+        <a asp-controller="cat" asp-action="index" class="btn btn-danger float-right">Back</a>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-controller="cat" asp-action="edit" method="post">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category Name</label>
+                <input asp-for="cat_name" type="Name" class="form-control" id="exampleInputEmail1" placeholder="Enter Category">
+            </div>
+            <span style="color:red">@ViewBag.msg</span>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+    </form>
+</div>
+

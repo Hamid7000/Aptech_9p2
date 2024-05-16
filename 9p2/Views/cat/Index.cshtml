@@ -1,0 +1,46 @@
+﻿@model List<category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/master.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Categories List</h1>
+        <a asp-controller="cat" asp-action="add" class="btn btn-primary float-right">Add Category</a>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+               @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.cat_id</td>
+                        <td>@item.cat_name</td>
+                        <td>
+                            <a asp-controller="cat" asp-action="edit" asp-route-id="@item.cat_id"><i class="fa-solid fa-pencil mr-5" style="color:darkgreen"></i></a>
+                            <a asp-controller="cat" asp-action="delete" asp-route-id="@item.cat_id"><i class="fa-solid fa-trash-can" style="color:red"></i></a>
+                            </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th>Action</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
