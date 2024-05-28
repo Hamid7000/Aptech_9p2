@@ -246,8 +246,7 @@
                                     <h5 class="product-title mb-0">
                                         <a href="product-detail.html" class="product-title-link">@i.pro_name</a>
                                     </h5>
-
-                                    <p class="product-p">Original package design from house</p>
+                                    <a asp-controller="cart" asp-action="addtocart" asp-route-id="@i.pro_id" class="btn btn-success float-right">Add To Cart</a>
                                 </div>
 
                             <a class="product-price text-muted ms-auto mt-auto mb-5"><i class="fa-solid fa-cart-plus"></i></a>

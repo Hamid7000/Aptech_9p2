@@ -79,9 +79,10 @@
                             <div class="dropdown-menu">
                                 @foreach (var item in b)
                                 {
-                            <li class="nav-item"><a href="" class="nav-link">@item.cat_name</a></li>
+                            <li class="nav-item">
+                                <a asp-controller="client" asp-action="filter_pro" asp-route-id="@item.cat_id" class="nav-link">@item.cat_name</a>
+                            </li>
                                 }
-
                 </div>
             </div>
 
@@ -106,7 +107,7 @@
             </div>
             </div>
         </nav>
-    <section class="featured-product section-padding">
+        <section class="featured-product section-padding">
         <div class="container">
             <div class="row">
 
@@ -133,8 +134,8 @@
                                     <h5 class="product-title mb-0">
                                         <a href="product-detail.html" class="product-title-link">@i.pro_name</a>
                                     </h5>
+                                        <a asp-controller="cart" asp-action="addtocart" asp-route-id="@i.pro_id" class="btn btn-success float-right">Add To Cart</a>
 
-                                    <p class="product-p">Original package design from house</p>
                                 </div>
 
                                     <small class="product-price text-muted ms-auto mt-auto mb-5"><i class="fa-solid fa-cart-plus"></i></small>
